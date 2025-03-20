@@ -1,0 +1,198 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap'); /* ✅ Move this up */
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Lato:wght@400;700&display=swap');
+@font-face {
+  font-family: 'QuranFont';
+  src: url('/fonts/ArabQuranIslamic140-vnmnZ.ttf') format('woff'),
+    url('/fonts/ArabQuranIslamic140.woff2') format('woff2'); /* Better performance */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arabQuranIslamic';
+  src: url('/fonts/ArabQuranIslamic140-K7n4W.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.arabQuranIslamic {
+  font-family: 'arabQuranIslamic', sans-serif;
+}
+@font-face {
+  font-family: 'PDMS Saleem Quran';
+  src: url('/fonts/PDMS_Saleem_QuranFont_shipped.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'QuranSurah';
+  src: url('./fonts/QuranSurah2-7Bov4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uthmanic';
+  src: url('/fonts/KfgqpcHafsUthmanicScriptRegular-1jGEe.woff2') format('woff2'),
+    url('/fonts/KfgqpcHafsUthmanicScriptRegular-1jGEe.woff') format('woff'),
+    url('/fonts/KfgqpcHafsUthmanicScriptRegular-1jGEe.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.quran-UTMNI {
+  font-family: 'Uthmanic', sans-serif;
+}
+
+.quran-font {
+  font-family: 'PDMS Saleem Quran', sans-serif;
+}
+
+.quran-text {
+  font-family: 'QuranFont', Arial, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  direction: rtl; /* Right-to-left for Arabic */
+}
+
+/* new surah fonts */
+
+/* Example usage of the custom font */
+.quraan-surahFont {
+  font-family: 'QuranSurah', sans-serif;
+}
+
+.maven {
+  font-family: 'Maven Pro', sans-serif;
+}
+.amiri-quran {
+  font-family: 'Amiri Quran', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.surah-name {
+  font-family: 'Scheherazade New', serif;
+  font-size: 20px;
+}
+
+.lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.bodyDark {
+  color: white;
+}
+
+body {
+  background-color: #0b1416; /* Background color */
+  color: white;
+  font-family: 'Maven Pro', sans-serif;
+  min-height: 100vh; /* Ensure it covers full height */
+  margin: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix the dotted background with full coverage and rotation */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200vw;
+  height: 200vh;
+
+  background-image: radial-gradient(white 0.5px, transparent 1px);
+  background-size: 13px 13px; /* Adjust dot spacing */
+
+  /* Fully rotate the pattern */
+  transform: rotate(45deg);
+  transform-origin: center;
+
+  opacity: 0.2; /* Adjust transparency */
+  z-index: -1; /* Keep it behind everything */
+  pointer-events: none;
+}
+
+::selection {
+  background: #2ba4ab; /* Turquoise selection */
+  color: #fff; /* White text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2a30;
+  border-radius: 10px;
+  margin-left: 10px;
+  position: relative;
+  z-index: 99999;
+} */
+
+/* sideTransition */
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.container-fliude {
+  max-width: 120rem;
+  margin: auto;
+}
+.ayah-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px; /* Adjusted for better proportion */
+  height: 25px;
+  background-color: #343a40; /* Circle color */
+  border: 0.5px solid black;
+  color: white; /* Text color */
+  border-radius: 50%; /* Makes it a circle */
+  font-size: 12px; /* Adjust text size */
+  font-weight: bold;
+  margin: 0 5px; /* Space between symbols */
+}
+.text-align-last {
+  text-align-last: center;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
